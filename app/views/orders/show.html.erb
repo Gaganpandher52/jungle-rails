@@ -5,7 +5,8 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h2>Thank you for your order!</h2>
+    <h4> email : <%= current_user.email%><h4>
       <table class="table table-bordered">
       <thead>
         <tr>
@@ -24,10 +25,10 @@
       <tfoot>
         <tr>
           <th colspan="4">
-            TOTAL: 
+            TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            <%= @order.total_cents / 100.0 %>
           </th>
         </tr>
       </tfoot>
