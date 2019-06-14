@@ -33,6 +33,7 @@
   </div>
 
   <div class="row">
+      <% if cart.empty? == false  %>
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
         <script
@@ -46,7 +47,13 @@
           data-currency="cad">
         </script>
       <% end %>
+      <%else%> 
+      <h2>  <%='Sorry! Your cart is empty'%> </h2>
+      
     </div>
+    <% end %>
+    
+  
   </div>
 
 </section>
