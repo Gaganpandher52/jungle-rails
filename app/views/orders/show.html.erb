@@ -6,7 +6,11 @@
 
   <div class="order-summary jumbotron">
     <h2>Thank you for your order!</h2>
-    <h4> email : <%= current_user.email%><h4>  
+    <% if !current_user%>
+      <h4>Guest account : sign in to recieve confirmation email<h4>
+    <%else%>  
+    <h4> email : <%= current_user.email%><h4>
+    <%end%>  
       <table class="table table-bordered"> 
       <thead>
         <tr>
