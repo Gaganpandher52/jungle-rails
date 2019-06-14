@@ -4,14 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com</h1>
+    <h1>Hello there, this is a confirmation of your order</h1>
     <p>
-      You have successfully signed up to example.com,
-      your username <br>
+      You order has been successfully completed,
+      your email- <%=@order.email%> <br>
+      your order no -<%= @order.id %>
     </p>
-    <p>
-      To login to the site, just follow this
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thanks for your purchase from Jungle and have a great day!</p>
   </body>
 </html>
