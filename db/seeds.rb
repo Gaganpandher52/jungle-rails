@@ -20,6 +20,26 @@ unless Rails.env.development?
 end
 
 # Let's do this ...
+## RATINGS
+# Ratings.destroy_all
+# rat1 = Ratings.find_or_create_by! name: 'rating 1'
+# rat2 = Ratings.find_or_create_by! name: 'rating 2'
+# # rat3 = Ratings.find_or_create_by! name: 'rating 3'
+# product.ratings.create!({
+#   product_id: 2,
+#   user_id: 3,
+#   description: 'this product is nice testing rating',
+#   rating: 5
+  
+# })
+# product.ratings.create!({
+#   product_id: 2,
+#   user_id: 3,
+#   description: 'testing rating 2',
+#   rating: 3
+  
+# })
+# product
 
 ## CATEGORIES
 
@@ -41,6 +61,11 @@ cat1.products.create!({
   image: open_asset('apparel1.jpg'),
   quantity: 10,
   price: 64.99
+}).ratings.create!({
+  product_id: 2,
+  user_id: 3,
+  description: 'hi this product is nice ',
+  rating: 4
 })
 
 cat1.products.create!({
