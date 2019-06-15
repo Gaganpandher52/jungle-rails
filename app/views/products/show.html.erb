@@ -34,12 +34,22 @@
         <%= f.submit("create ratings") %>
       <% end %>
       <br>  
-    <div id="" class="">
-      <ol>
-        <% @order_rating.each  do |c|%>
-        <li>Review:  <%= c.description%> -- Rating:  <%= c.rating%></li><br>
-        <%end %>
-      </old>
-    </div>
+    
+    <div>
+        <% @order_rating.each do |r| %>
+            <div style="border: 1px solid grey">
+              <dd><strong>Product ID: </strong><i><%= r.product_id %></i></dd>
+              <dd><strong>User ID: </strong><i><%= r.user_id %></i></dd>
+              <dd><strong>Product Review: </strong><i>"<%= r.description %>"</i></dd>
+              <dd><strong>Product Rating: </strong><i><%= r.rating %></i></dd>
+            <% if current_user %>
+              <% if current_user.id == r.user_id %>
+                <%= link_to 'Delete', product_rating_url(r.product_id, r.id),method: :delete, data: { confirm: 'Please, Confirm?' }, class: "btn btn-danger btn-xs" %>
+              <% end %>
+            <% end%>
+            </div>
+            <br>
+        <% end %>
+      </div>
   </article>
 </section>

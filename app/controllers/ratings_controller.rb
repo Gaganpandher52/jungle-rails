@@ -22,6 +22,12 @@ class RatingsController < ApplicationController
       params.require(:rating).permit(:description, :rating)
     end 
 
+    def destroy
+      @rating = Rating.find params[:id]
+      @rating.destroy
+      redirect_to '/products/#{params[:product_id]}'
+    end
+
 end
 
 # def create
