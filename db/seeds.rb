@@ -54,6 +54,7 @@ cat3 = Category.find_or_create_by! name: 'Furniture'
 puts "Re-creating Products ..."
 
 Product.destroy_all
+Rating.destroy_all
 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',

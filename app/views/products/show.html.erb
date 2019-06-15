@@ -27,20 +27,19 @@
     </div>
     <h4>Reviews for <%= @product.name %>!</h4>
     
-    <%= form_for :rating ,url: product_ratings_path(@product) do |f| %>
+      <%= form_for @rating ,url: product_ratings_path(@product) do |f| %>
       <h2>New Review</h2>
         Description : <%= f.text_field :description %><br />
-        Rating : <%= f.select :select, [1, 2, 3, 4, 5]%><br />
-        <%= f.submit %>
+        Rating : <%= f.select :rating, [1, 2, 3, 4, 5]%><br />
+        <%= f.submit("create ratings") %>
       <% end %>
       <br>  
-    <div id="ratings" class="row-sm-2">
-      <% @order_rating.each  do |c|%>
-      <p>Review:  <%= c.description%><p>
-      <p>Rating: <%= c.rating%><p>
-      <%end %>
+    <div id="" class="">
+      <ol>
+        <% @order_rating.each  do |c|%>
+        <li>Review:  <%= c.description%> -- Rating:  <%= c.rating%></li><br>
+        <%end %>
+      </old>
     </div>
-
   </article>
-
 </section>
