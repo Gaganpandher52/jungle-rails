@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
+    @ratings = Rating.new
+    @order_rating = Rating.all.order(created_at: :desc).where(product_id: params[:id]) 
   end
 
 end

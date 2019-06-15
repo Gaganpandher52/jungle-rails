@@ -25,12 +25,20 @@
         </dl>
       </div>
     </div>
+    <h4>Reviews for <%= @product.name %>!</h4>
+    
+    <%= form_for :rating ,url: product_ratings_path(@product) do |f| %>
+      <h2>New Review</h2>
+        Description : <%= f.text_field :description %><br />
+        Rating : <%= f.select :select, [1, 2, 3, 4, 5]%><br />
+        <%= f.submit %>
+      <% end %>
+      <br>  
     <div id="ratings" class="row-sm-2">
-    
-      <p>Reivew:  <%= @product.ratings[0].description%><p>
-      <p>Rating(out of 5): <%= @product.ratings[0].rating%><p>
-    
-
+      <% @order_rating.each  do |c|%>
+      <p>Review:  <%= c.description%><p>
+      <p>Rating: <%= c.rating%><p>
+      <%end %>
     </div>
 
   </article>
