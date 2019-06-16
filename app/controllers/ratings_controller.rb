@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   #method to create ratings
+  
   def create
     @rating = Rating.new(review_params)
     @rating.product_id = params[:product_id]
