@@ -9,6 +9,10 @@
       You order has been successfully completed,
       your email- <%=@order.email%> <br>
       your order no -<%= @order.id %>
+      you have bought
+      <% @order.line_items.all.each do |item| %>
+        <%= render 'items', item:item%>
+      <% end %>
     </p>
     <p>Thanks for your purchase from Jungle and have a great day!</p>
   </body>

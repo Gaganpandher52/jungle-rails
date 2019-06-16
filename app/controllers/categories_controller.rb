@@ -9,5 +9,4 @@ class CategoriesController < ApplicationController
     @products = @category.products.order(created_at: :desc)
   end
   
-
 end

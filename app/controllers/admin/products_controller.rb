@@ -9,7 +9,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new
    
   end
-
+  #method to create products
   def create
     @product = Product.new(product_params)
 
@@ -19,7 +19,7 @@ class Admin::ProductsController < ApplicationController
       render :new
     end
   end
-
+  #method to delete products
   def destroy
     @product = Product.find params[:id]
     @product.destroy
@@ -27,7 +27,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
-
+  #params for the products
   def product_params
     params.require(:product).permit(
       :name,

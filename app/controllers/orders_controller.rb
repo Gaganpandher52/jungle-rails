@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     # empty hash means no products in cart :)
     update_cart({})
   end
-
+  #handles the payments for the order
   def perform_stripe_charge
     Stripe::Charge.create(
       source:      params[:stripeToken],
@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
       currency:    'cad'
     )
   end
-
+  
   def create_order(stripe_charge)
     order = Order.new(
       email: params[:stripeEmail],
