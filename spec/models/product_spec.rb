@@ -16,6 +16,7 @@ RSpec.describe Product, type: :model do
       @newPro.errors.full_messages
        
     end
+    
     it 'should have a price' do
       
       @newPro = Product.new price:129.99

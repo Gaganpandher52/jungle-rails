@@ -37,15 +37,24 @@ RSpec.describe User, type: :model do
       expect(@user.last_name).to be_present
       @user.errors.full_messages
     end
-    it 'should have a unique email' do
-      @user = User.new email:'hi'
-      expect(@user.email).to be_present
-      @user.errors.full_messages
+    # it 'should have a unique email' do
+    #   @user = User.new email:'hi@gmail.com'
+    #   expect('hi@gmail.com').to have_attributes(downcase:@user.email)
+    #   @user.errors.full_messages
+    # end
+
+    it "Email must be unique" do
+      @user1 = User.new email:'example@gmail.com'
+      @user1.save
+      @user2 = User.new email:'example@gmail.com'
+      @user2.email.upcase
+      @user2.save
+      expect(@user1.email == @user2.email).to be true
     end
 
     it 'should have a password length of 5' do
-      @user = User.new password_digest:22222
-      expect(@user.password_digest).to have_attributes(length: 5)
+      @user = User.new password:'22234'
+      expect(@user.password.length) >= 5
       @user.errors.full_messages
     end
    
